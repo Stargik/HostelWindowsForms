@@ -17,7 +17,7 @@ namespace HostelWindowsForms.Models
         }
         public List<T> GetContent<T>()
         {
-            using (FileStream readStream = new FileStream(path, FileMode.OpenOrCreate))
+            using (FileStream readStream = new FileStream(path, FileMode.Open))
             {
                 var records = JsonSerializer.Deserialize<List<T>>(readStream);
                 return records;

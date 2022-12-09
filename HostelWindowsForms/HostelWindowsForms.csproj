@@ -130,6 +130,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="HostelJson.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\HostelWindowsForms.Models.Record.datasource" />
     <None Include="Properties\DataSources\HostelWindowsForms.Models.RecordView.datasource" />
