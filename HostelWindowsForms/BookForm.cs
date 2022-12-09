@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -11,26 +12,21 @@ using System.Windows.Forms;
 
 namespace HostelWindowsForms
 {
-    public partial class Form1 : Form
+    public partial class BookForm : Form
     {
         private BindingList<RecordView> recordViews;
         private Filter filter;
-        public JsonService<Record> JsonService { get; set; }
-        public Form1()
+        public JsonService JsonService { get; set; }
+        public BookForm()
         {
             InitializeComponent();
-            JsonService = new JsonService<Record>("HostelJson.json");
+            JsonService = new JsonService(ConfigurationManager.AppSettings["filePath"]);
             recordViews = new BindingList<RecordView>();
-            var records = JsonService.GetContent();
-            recordViews = MapperToRecordViews(records);
+            var records = JsonService.GetContent<Record>();
+            recordViews = RecordMapper.MapperToRecordViews(records);
             filter = new Filter(recordViews);
             dataGridView1.DataSource = filter.FilteredRecordViews;
             filter.FilterCancel();
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -45,7 +41,7 @@ namespace HostelWindowsForms
 
         private void CreateButton_Click(object sender, EventArgs e)
         {
-            var form = new Form2();
+            var form = new BookCreatorForm();
             var res = form.ShowDialog();
             if (res == DialogResult.Yes)
             {
@@ -59,7 +55,7 @@ namespace HostelWindowsForms
 
             if (!(dataGridView1.CurrentRow is null))
             {
-                var form = new Form3()
+                var form = new BookUpdaterForm()
                 {
                     OldRecordView = filter.FilteredRecordViews[dataGridView1.CurrentRow.Index]
                 };
@@ -76,36 +72,10 @@ namespace HostelWindowsForms
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            var records = MapperToRecords(recordViews);
-            JsonService.UpdateContent(records);
+            var records = RecordMapper.MapperToRecords(recordViews);
+            JsonService.UpdateContent<Record>(records);
         }
 
-        private List<Record> MapperToRecords(BindingList<RecordView> recordViews)
-        {
-            var records = new List<Record>();
-            foreach (var item in recordViews)
-            {
-                var record = new Record
-                {
-                    Address = new Address { HouseAddress = item.HouseAddress, RoomNumber = item.RoomNumber },
-                    Student = new Student { FirstName = item.FirstName, LastName = item.LastName, SurName = item.SurName, Course = item.Course, Department = item.Department },
-                    FromDate = item.FromDate,
-                    ToDate = item.ToDate
-                };
-                records.Add(record);
-            }
-            return records;
-        }
-        private BindingList<RecordView> MapperToRecordViews(List<Record> records)
-        {
-            var views = new BindingList<RecordView>();
-            foreach (var item in records)
-            {
-                var recordView = new RecordView(item);
-                views.Add(recordView);
-            }
-            return views;
-        }
         private void FilterButton_Click(object sender, EventArgs e)
         {
             filter.FilterCancel();
@@ -126,7 +96,7 @@ namespace HostelWindowsForms
 
         private void GeneralInfoButton_Click(object sender, EventArgs e)
         {
-            var form = new Form4();
+            var form = new BookInfoForm();
             form.ShowDialog();
         }
     }

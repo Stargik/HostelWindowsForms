@@ -1,6 +1,6 @@
 ﻿namespace HostelWindowsForms
 {
-    partial class Form3
+    partial class BookUpdaterForm
     {
         /// <summary>
         /// Required designer variable.
@@ -260,7 +260,7 @@
             this.ErrorLabel.UseCompatibleTextRendering = true;
             this.ErrorLabel.Visible = false;
             // 
-            // Form3
+            // BookUpdaterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -286,7 +286,7 @@
             this.Controls.Add(this.SurNameLabel);
             this.Controls.Add(this.LastNameLabel);
             this.Controls.Add(this.FirstNameLabel);
-            this.Name = "Form3";
+            this.Name = "BookUpdaterForm";
             this.Text = "BookUpdater";
             this.Load += new System.EventHandler(this.Form3_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RoomNumberNumericUpDown)).EndInit();

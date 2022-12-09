@@ -8,14 +8,14 @@ using System.Text.Json;
 
 namespace HostelWindowsForms.Models
 {
-    public class JsonService<T>
+    public class JsonService
     {
         private readonly string path;
         public JsonService(string path)
         {
             this.path = path;
         }
-        public List<T> GetContent()
+        public List<T> GetContent<T>()
         {
             using (FileStream readStream = new FileStream(path, FileMode.OpenOrCreate))
             {
@@ -23,7 +23,7 @@ namespace HostelWindowsForms.Models
                 return records;
             }
         }
-        public void UpdateContent(List<T> records)
+        public void UpdateContent<T>(List<T> records)
         {
             using (FileStream writeStream = new FileStream(path, FileMode.Create))
             {

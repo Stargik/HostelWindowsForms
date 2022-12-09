@@ -1,6 +1,6 @@
 ﻿namespace HostelWindowsForms
 {
-    partial class Form4
+    partial class BookInfoForm
     {
         /// <summary>
         /// Required designer variable.
@@ -96,7 +96,7 @@
             this.label1.TabIndex = 6;
             this.label1.Text = "General information";
             // 
-            // Form4
+            // BookInfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,7 +107,7 @@
             this.Controls.Add(this.CourceLabel);
             this.Controls.Add(this.SurNameLabel);
             this.Controls.Add(this.NameLabel);
-            this.Name = "Form4";
+            this.Name = "BookInfoForm";
             this.Text = "BookInfo";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace HostelWindowsForms
 {
-    public partial class Form2 : Form
+    public partial class BookCreatorForm : Form
     {
         public RecordView RecordView { get; private set; } 
-        public Form2()
+        public BookCreatorForm()
         {
             InitializeComponent();
         }
@@ -26,7 +26,7 @@ namespace HostelWindowsForms
 
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
-            if (!IsValid() || !IsDateValid())
+            if (!FormValidator.IsValid(FirstNameTextBox.Text, LastNameTextBox.Text, SurNameTextBox.Text, DepartmentTextBox.Text, HouseAddressTextBox.Text) || !FormValidator.IsDateValid(FromDateDateTimePicker.Value, ToDateDateTimePicker.Value))
             {
                 ErrorLabel.Visible = true;
             }
@@ -54,17 +54,6 @@ namespace HostelWindowsForms
         {
             this.DialogResult = DialogResult.Cancel;
             this.Close();
-        }
-        private bool IsValid()
-        {
-            bool res = !(String.IsNullOrEmpty(FirstNameTextBox.Text) || String.IsNullOrEmpty(LastNameTextBox.Text) || String.IsNullOrEmpty(SurNameTextBox.Text) ||
-                       String.IsNullOrEmpty(DepartmentTextBox.Text) || String.IsNullOrEmpty(HouseAddressTextBox.Text));
-            return res;
-        }
-        private bool IsDateValid()
-        {
-            bool res = FromDateDateTimePicker.Value <= ToDateDateTimePicker.Value;
-            return res;
         }
     }
 }

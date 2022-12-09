@@ -1,6 +1,6 @@
 ﻿namespace HostelWindowsForms
 {
-    partial class Form1
+    partial class BookForm
     {
         /// <summary>
         /// Required designer variable.
@@ -84,7 +84,6 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1372, 180);
             this.dataGridView1.TabIndex = 0;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // firstNameDataGridViewTextBoxColumn
             // 
@@ -313,7 +312,7 @@
             this.GeneralInfoButton.UseVisualStyleBackColor = true;
             this.GeneralInfoButton.Click += new System.EventHandler(this.GeneralInfoButton_Click);
             // 
-            // Form1
+            // BookForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -336,7 +335,7 @@
             this.Controls.Add(this.CreateButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "Form1";
+            this.Name = "BookForm";
             this.Text = "Book";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordViewBindingSource)).EndInit();
