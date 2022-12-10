@@ -337,6 +337,7 @@
             this.Controls.Add(this.dataGridView1);
             this.Name = "BookForm";
             this.Text = "Book";
+            this.Load += new System.EventHandler(this.BookForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.recordViewBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CourceFilter)).EndInit();

@@ -20,13 +20,6 @@ namespace HostelWindowsForms
         public BookForm()
         {
             InitializeComponent();
-            JsonService = new JsonService(ConfigurationManager.AppSettings["filePath"]);
-            recordViews = new BindingList<RecordView>();
-            var records = JsonService.GetContent<Record>();
-            recordViews = RecordMapper.MapperToRecordViews(records);
-            filter = new Filter(recordViews);
-            dataGridView1.DataSource = filter.FilteredRecordViews;
-            filter.FilterCancel();
         }
 
         private void DeleteButton_Click(object sender, EventArgs e)
@@ -98,6 +91,21 @@ namespace HostelWindowsForms
         {
             var form = new BookInfoForm();
             form.ShowDialog();
+        }
+
+        private void BookForm_Load(object sender, EventArgs e)
+        {
+            Init();
+        }
+        private void Init()
+        {
+            JsonService = new JsonService(ConfigurationManager.AppSettings["filePath"]);
+            recordViews = new BindingList<RecordView>();
+            var records = JsonService.GetContent<Record>();
+            recordViews = RecordMapper.MapperToRecordViews(records);
+            filter = new Filter(recordViews);
+            dataGridView1.DataSource = filter.FilteredRecordViews;
+            filter.FilterCancel();
         }
     }
 }
