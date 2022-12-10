@@ -19,11 +19,6 @@ namespace HostelWindowsForms
             InitializeComponent();
         }
 
-        private void Form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void ConfirmButton_Click(object sender, EventArgs e)
         {
             if (!FormValidator.IsValid(FirstNameTextBox.Text, LastNameTextBox.Text, SurNameTextBox.Text, DepartmentTextBox.Text, HouseAddressTextBox.Text) || !FormValidator.IsDateValid(FromDateDateTimePicker.Value, ToDateDateTimePicker.Value))

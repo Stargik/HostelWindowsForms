@@ -288,7 +288,7 @@
             this.Controls.Add(this.FirstNameLabel);
             this.Name = "BookUpdaterForm";
             this.Text = "BookUpdater";
-            this.Load += new System.EventHandler(this.Form3_Load);
+            this.Load += new System.EventHandler(this.BookUpdaterForm_Load);
             ((System.ComponentModel.ISupportInitialize)(this.RoomNumberNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CourceLabelNumericUpDown)).EndInit();
             this.ResumeLayout(false);

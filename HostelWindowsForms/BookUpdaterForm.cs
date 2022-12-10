@@ -20,7 +20,7 @@ namespace HostelWindowsForms
             InitializeComponent();
         }
 
-        private void Form3_Load(object sender, EventArgs e)
+        private void BookUpdaterForm_Load(object sender, EventArgs e)
         {
             FirstNameTextBox.Text = OldRecordView.FirstName;
             LastNameTextBox.Text = OldRecordView.LastName;
@@ -62,5 +62,6 @@ namespace HostelWindowsForms
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
     }
 }

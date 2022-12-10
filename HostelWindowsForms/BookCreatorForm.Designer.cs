@@ -288,7 +288,6 @@
             this.Controls.Add(this.FirstNameLabel);
             this.Name = "BookCreatorForm";
             this.Text = "BookCreator";
-            this.Load += new System.EventHandler(this.Form2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.CourceLabelNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.RoomNumberNumericUpDown)).EndInit();
             this.ResumeLayout(false);
