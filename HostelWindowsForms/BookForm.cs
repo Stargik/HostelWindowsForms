@@ -95,11 +95,11 @@ namespace HostelWindowsForms
 
         private void BookForm_Load(object sender, EventArgs e)
         {
-            Init();
+            Init(ConfigurationManager.AppSettings["filePath"]);
         }
-        private void Init()
+        private void Init(string path)
         {
-            JsonService = new JsonService(ConfigurationManager.AppSettings["filePath"]);
+            JsonService = new JsonService(path);
             recordViews = new BindingList<RecordView>();
             var records = JsonService.GetContent<Record>();
             recordViews = RecordMapper.MapperToRecordViews(records);
